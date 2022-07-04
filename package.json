@@ -4,9 +4,9 @@
   "description": "renovation cac",
   "main": "index.js",
   "dependencies": {
+    "mri": "^1.2.0",
     "vitest": "^0.17.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "vitest"
   },

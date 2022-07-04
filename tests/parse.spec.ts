@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 import { cac } from "../src";
 
-test("hapy path", () => {
+test.skip("hapy path", () => {
   const cli = cac();
 
   const rawArrs1 = ["--type", "foo", "bar"];

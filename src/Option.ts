@@ -1,6 +1,6 @@
 import { removeBrackets, camelcaseOptionName } from './utils';
 
-interface OptionConfig {
+export interface OptionConfig {
   default?: any;
   type?: any[];
 }
