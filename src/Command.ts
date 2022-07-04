@@ -1,4 +1,4 @@
-import { Option } from "./Option";
+import Option from './Option';
 
 export class Command {
   public options: Option[];
@@ -10,6 +10,3 @@ export class Command {
     this.options.push(option);
   }
 }
-
-
-

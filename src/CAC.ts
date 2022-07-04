@@ -1,13 +1,13 @@
-import mri from "mri";
-import { Command } from "./Command";
-import { Option } from "./Option";
+import mri from 'mri';
+import { Command } from './Command';
+import Option, { OptionConfig } from './Option';
 
 class CAC {
   private globalCommand: Command;
   constructor() {
     this.globalCommand = new Command();
   }
-  option(name: string, description: string) {
+  option(name: string, description: string, config?: OptionConfig) {
     this.globalCommand.option(name, description);
   }
 
@@ -30,7 +30,7 @@ class CAC {
       args: [],
       options: {
         ...options,
-        "--": [],
+        '--': [],
       },
     };
   }
