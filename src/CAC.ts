@@ -8,7 +8,7 @@ class CAC {
     this.globalCommand = new Command();
   }
   option(name: string, description: string, config?: OptionConfig) {
-    this.globalCommand.option(name, description);
+    this.globalCommand.option(name, description, config);
   }
 
   parse(rawArrs: string[]) {
@@ -20,7 +20,7 @@ class CAC {
 
     const options = this.globalCommand.options.reduce(
       (options, option: Option) => {
-        options[option.name] = mriResult[option.name];
+        options[option.name] = mriResult[option.name] || option.config.default;
         return options;
       },
       {}
