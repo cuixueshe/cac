@@ -1,6 +1,6 @@
-import mri from "mri";
-import { Command } from "./Command";
-import { Option, OptionConfig } from "./Option";
+import mri from 'mri';
+import { Command } from './Command';
+import Option, { OptionConfig } from './Option';
 
 class CAC {
   private globalCommand: Command;
@@ -30,7 +30,7 @@ class CAC {
       args: [],
       options: {
         ...options,
-        "--": [],
+        '--': [],
       },
     };
   }
