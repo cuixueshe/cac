@@ -68,3 +68,13 @@ test('kebab-case in option name', () => {
     }
   })
 })
+
+test('negated option validation', () => {
+  const cli = cac()
+
+  cli.option('--config <config>', 'config file')
+  cli.option('--no-config', 'no config file')
+
+  const { options } = cli.parse(['', '', '--no-config'])
+  expect(options.config).toBe(false)
+})
