@@ -7,7 +7,7 @@ export class Option {
   rawName: string
   description: string
   config: OptionConfig
-  constructor (name: string, description: string, config?: OptionConfig) {
+  constructor(name: string, description: string, config?: OptionConfig) {
     this.rawName = name
 
     this.description = description
