@@ -33,7 +33,7 @@ class CAC {
             : option.name.replace(/([A-Z])/, (_, $1) => `-${$1.toLowerCase()}`)
 
         const result = mriResult[key]
-        const isUndefined = typeof result === 'undefined'
+        const isUndefined = result === undefined
 
         options[option.name] = isUndefined ? option.config.default : result
         return options
