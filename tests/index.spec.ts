@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest'
+import { test, expect, vi } from 'vitest'
 import { cac } from '../src'
 
 test('basic-usage', () => {
@@ -77,4 +77,27 @@ test('negated option validation', () => {
 
   const { options } = cli.parse(['', '', '--no-config'])
   expect(options.config).toBe(false)
+})
+
+test('command action callback', () => {
+  const cli = cac()
+
+  const obj = { fn () { } }
+  const fn = vi.spyOn(obj, 'fn')
+
+  cli
+    .command('build [entry]', 'Build your app')
+    .option('--config <configFlie>', 'Use config file for building', {
+      type: [String],
+    })
+    .option('--scale [level]', 'Scaling level')
+    .action(obj.fn)
+
+  const { options } = cli.parse(
+    `node bin build app.js --config config.js --scale`.split(' ')
+  )
+
+  expect(fn).toHaveBeenCalled()
+  expect(options.config).toEqual('config.js')
+  expect(options.scale).toEqual(true)
 })
