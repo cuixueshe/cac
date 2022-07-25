@@ -125,11 +125,7 @@ class CAC {
 
     const actionArgs: any[] = []
     command.args.forEach((arg, index) => {
-      if (arg.variadic) {
-        actionArgs.push(args.slice(index))
-      } else {
-        actionArgs.push(args[index])
-      }
+      actionArgs.push(args[index])
     })
     actionArgs.push(options)
     return command.commandAction.apply(this, actionArgs)

@@ -10,7 +10,6 @@ interface CommandConfig {
 interface CommandArg {
   required: boolean
   value: string
-  variadic: boolean
 }
 
 export class Command {
